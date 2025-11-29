@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Pessoal de Finanças</title>
+</head>
+<body>
+    <form id="formsalario">
+        <h2>Cadastro do Salário</h2>
+        <label for="salario">Salário:</label>
+        <input type="number" id="salario" required>
+        <br>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <form id="formdespesas">
+        <h2>Cadastro de Despesas</h2>
+        <label for="datadespesa">Data:</label>
+        <input type="date" id="datadespesa" required>
+        <br>
+        <label for="nomedespesa">Nome:</label>
+        <input type="text" id="nomedespesa" required>
+        <br>
+        <label for="valordespesa">Valor:</label>
+        <input type="number" id="valordespesa" required>
+        <br>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <h2>Salário</h2>
+    <p id="outputsalario"></p>
+
+    <h2>Lista de despesas</h2>
+    <ul id="output"></ul>
+    <script type="text/javascript" src="js/script.js"></script>
+
+    <input type="button" value="Novo Mês" onclick="novomes()">
+    
+</body>
+</html>
