@@ -1,9 +1,18 @@
 document.getElementById("formsalario").addEventListener("submit",function(event){
     event.preventDefault()
     var salario=document.getElementById("salario").value
+    localStorage.setItem("salario", salario)
     document.getElementById("outputsalario").innerHTML=salario
     document.getElementById("formsalario").reset()
 })
+
+window.onload = function() {
+    var salario = localStorage.getItem("salario")
+    if (salario) {
+        document.getElementById("outputsalario").innerHTML = salario
+    }
+    exibir_despesas()
+}
 
 document.getElementById("formdespesas").addEventListener("submit",function(event){
     event.preventDefault()
@@ -42,6 +51,33 @@ function novomes(){
     document.getElementById("outputsalario").innerHTML=""
     while(lista.lastElementChild){
     lista.lastElementChild.remove()
+    localStorage.clear()
+    document.getElementById("sal").innerHTML = "Salário: "
+    document.getElementById("tdes").innerHTML = "Total de despesas: "
+    document.getElementById("salfin").innerHTML = "Saldo final: "
     }
     }
+}
+
+function resumir() {
+    var salario = Number(localStorage.getItem("salario")) || 0
+    var lista_despesas = JSON.parse(localStorage.getItem('listagem')) || []
+    var somadespesas = 0
+
+    if (salario === 0 && lista_despesas.length === 0) {
+        alert("Informe os valores.");
+        return;
+    }
+
+    else{
+    for (let i = 0; i < lista_despesas.length; i++) {
+        somadespesas += Number(lista_despesas[i].valor)
+    }
+
+    var saldofinal = salario - somadespesas
+
+    document.getElementById("sal").innerHTML = "Salário: " + salario
+    document.getElementById("tdes").innerHTML = "Total de despesas: " + somadespesas
+    document.getElementById("salfin").innerHTML = "Saldo final: " + saldofinal
+}
 }

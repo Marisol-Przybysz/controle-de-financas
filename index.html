@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle Pessoal de Finanças</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
 </head>
 <body>
+    <h1>Controle de Finanças</h1>
     <form id="formsalario">
         <h2>Cadastro do Salário</h2>
         <label for="salario">Salário:</label>
@@ -27,15 +31,22 @@
         <br>
         <button type="submit">Cadastrar</button>
     </form>
-
+    <div id="infos">
     <h2>Salário</h2>
     <p id="outputsalario"></p>
 
     <h2>Lista de despesas</h2>
     <ul id="output"></ul>
-    <script type="text/javascript" src="js/script.js"></script>
 
     <input type="button" value="Novo Mês" onclick="novomes()">
-    
+    </div>
+    <div id="resumo">
+        <h3 id="sal">Salário:</h3>
+        <h3 id="tdes">Total de despesas:</h3>
+        <h3 id="salfin">Saldo final:</h3>
+        <input type="button" value="Resumo" onclick="resumir()">
+    </div>
+
+    <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
