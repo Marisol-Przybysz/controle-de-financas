@@ -1,9 +1,14 @@
 document.getElementById("formsalario").addEventListener("submit",function(event){
     event.preventDefault()
     var salario=document.getElementById("salario").value
-    localStorage.setItem("salario", salario)
-    document.getElementById("outputsalario").innerHTML=salario
-    document.getElementById("formsalario").reset()
+    if(salario<1){
+        alert("O valor do salário é inválido")
+    }
+    else{  
+        localStorage.setItem("salario", salario)
+        document.getElementById("outputsalario").innerHTML=salario
+        document.getElementById("formsalario").reset()
+    }
 })
 
 window.onload = function() {
